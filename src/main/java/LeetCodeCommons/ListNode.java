@@ -9,7 +9,8 @@ public class ListNode implements Iterable<Integer> {
     public int val;
     public ListNode next;
 
-    public ListNode() {}
+    public ListNode() {
+    }
 
     public ListNode(int val) {
         this.val = val;
@@ -20,17 +21,22 @@ public class ListNode implements Iterable<Integer> {
         this.next = next;
     }
 
-    public ListNode getNode(){
+    public ListNode getNode() {
         return this;
     }
 
-    public static ListNode createNodeList(Iterable<Integer> iter) {
+    public static ListNode createNodeList(List<Integer> list) {
+        if (list.size() == 0) {
+            return null;
+        }
+
         ListNode head = new ListNode();
         ListNode p = head;
-        for (int v : iter) {
+        for (int v : list) {
             p.next = new ListNode(v);
             p = p.next;
         }
+
         return head.next;
     }
 
@@ -44,7 +50,7 @@ public class ListNode implements Iterable<Integer> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return nodeListToList(this).toString();
     }
 
