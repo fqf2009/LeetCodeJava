@@ -23,29 +23,29 @@ class LC1762_BuildingsWithOceanViewTest {
 
     @Test
     void findBuildingsTestCase1() {
-        int[] heights = new int[]{4, 2, 3, 1};
-        int[] expected = new int[]{0, 2, 3};
+        int[] heights = {4, 2, 3, 1};
+        int[] expected = {0, 2, 3};
         findBuildingsTest(heights, expected);
     }
 
     @Test
     void findBuildingsTestCase2() {
-        int[] heights = new int[]{4, 3, 2, 1};
-        int[] expected = new int[]{0, 1, 2, 3};
+        int[] heights = {4, 3, 2, 1};
+        int[] expected = {0, 1, 2, 3};
         findBuildingsTest(heights, expected);
     }
 
     @Test
     void findBuildingsTestCase3() {
-        int[] heights = new int[]{1, 3, 2, 4};
-        int[] expected = new int[]{3};
+        int[] heights = {1, 3, 2, 4};
+        int[] expected = {3};
         findBuildingsTest(heights, expected);
     }
 
     @Test
     void findBuildingsTestCase4() {
-        int[] heights = new int[]{1};
-        int[] expected = new int[]{0};
+        int[] heights = {1};
+        int[] expected = {0};
         findBuildingsTest(heights, expected);
     }
 }
