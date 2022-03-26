@@ -7,7 +7,7 @@ import java.util.Stack;
 // Monotonic Stack - T/S: O(n)/O(n)
 public class LC1762_BuildingsWithOceanView {
     public int[] findBuildings(int[] heights) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stack = new ArrayDeque<>(heights.length);
         for (int i = 0; i < heights.length; i++) {
             while (stack.size() > 0 && heights[stack.peekLast()] <= heights[i]) {
                 stack.removeLast();
