@@ -9,6 +9,7 @@ public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
+    public TreeNode parent; // for LC1650
 
     TreeNode() {
     }
@@ -17,10 +18,22 @@ public class TreeNode {
         this.val = val;
     }
 
+    TreeNode(int val, TreeNode parent) {
+        this.val = val;
+        this.parent = parent;
+    }
+
     TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right, TreeNode parent) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.parent = parent;
     }
 
     public static TreeNode fromBFSList(List<Integer> list) {
@@ -38,13 +51,13 @@ public class TreeNode {
             TreeNode node = que.peek();
             if (isLeft) {
                 if (value != null) {
-                    node.left = new TreeNode(value);
+                    node.left = new TreeNode(value, node);
                     que.add(node.left);
                 }
                 isLeft = false;
             } else {
                 if (value != null) {
-                    node.right = new TreeNode(value);
+                    node.right = new TreeNode(value, node);
                     que.add(node.right);
                 }
                 isLeft = true;
@@ -90,5 +103,16 @@ public class TreeNode {
         }
 
         return res;
+    }
+
+    public static TreeNode findNode(TreeNode root, int value) {
+        if (root == null) {
+            return null;
+        } else if (root.val == value) {
+            return root;
+        }
+
+        TreeNode node = findNode(root.left, value);
+        return node != null ? node : findNode(root.right, value);
     }
 }
