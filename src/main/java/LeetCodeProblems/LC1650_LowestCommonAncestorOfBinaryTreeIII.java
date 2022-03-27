@@ -25,7 +25,7 @@ public class LC1650_LowestCommonAncestorOfBinaryTreeIII {
                 level1--;
             }
         }
-        while (p.val != q.val) {
+        while (p != null && q != null && p.val != q.val) {
             p = p.parent;
             q = q.parent;
         }
