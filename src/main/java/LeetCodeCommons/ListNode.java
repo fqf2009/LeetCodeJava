@@ -40,7 +40,7 @@ public class ListNode implements Iterable<Integer> {
         return head.next;
     }
 
-    public static List<Integer> nodeListToList(ListNode head) {
+    public static List<Integer> listNodeToList(ListNode head) {
         var arr = new ArrayList<Integer>();
         while (head != null) {
             arr.add(head.val);
@@ -51,12 +51,12 @@ public class ListNode implements Iterable<Integer> {
 
     @Override
     public String toString() {
-        return nodeListToList(this).toString();
+        return listNodeToList(this).toString();
     }
 
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
+        return new Iterator<>() {
             private ListNode current = getNode();
 
             @Override
