@@ -1,6 +1,6 @@
 package LeetCodeProblems;
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
 public class LC0006_Zigzag {
     public String convert(String s, int numRows) {
@@ -18,5 +18,22 @@ public class LC0006_Zigzag {
         }
         //return String.join("", Arrays.stream(sb).map(StringBuilder::toString).toList());
         return String.join("", sb);
+    }
+
+    public String convert1(String s, int numRows) {
+        if (numRows == 1) return s;
+        String[] lines = new String[numRows];
+        for (int i = 0; i < numRows; i++) {
+            lines[i] = "";
+        }
+        int rn = 0, direction = 1;
+        for (char ch : s.toCharArray()) {
+            lines[rn] += ch;
+            rn += direction;
+            if (rn == 0 || rn == numRows - 1)
+                direction *= -1;
+        }
+        //return String.join("", Arrays.stream(sb).map(StringBuilder::toString).toList());
+        return String.join("", lines);
     }
 }
