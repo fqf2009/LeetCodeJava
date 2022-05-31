@@ -1,5 +1,6 @@
-package LeetCodeCommons;
+package LeetCodeProblems;
 
+import LeetCodeProblems.LC0016_ThreeSumClosest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
