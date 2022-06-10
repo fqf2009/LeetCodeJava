@@ -26,11 +26,12 @@ public class LC0057_InsertInterval {
             }
         }
 
-        int[][] res1 = new int[res.size()][2];
-        for (int i = 0; i < res.size(); i++) {
-            res1[i][0] = res.get(i)[0];
-            res1[i][1] = res.get(i)[1];
-        }
-        return res1;
+        return res.toArray(new int[res.size()][]);
+        // int[][] res1 = new int[res.size()][2];
+        // for (int i = 0; i < res.size(); i++) {
+        //     res1[i][0] = res.get(i)[0];
+        //     res1[i][1] = res.get(i)[1];
+        // }
+        // return res1;
     }
 }
