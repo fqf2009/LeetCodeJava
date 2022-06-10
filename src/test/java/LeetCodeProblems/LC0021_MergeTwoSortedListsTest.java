@@ -14,8 +14,8 @@ class LC0021_MergeTwoSortedListsTest {
     private LC0021_MergeTwoSortedLists solution;
 
     void mergeTwoListsTest(List<Integer> list1, List<Integer> list2, List<Integer> expected) {
-        ListNode head1 = ListNode.createNodeList(list1);
-        ListNode head2 = ListNode.createNodeList(list2);
+        ListNode head1 = ListNode.fromList(list1);
+        ListNode head2 = ListNode.fromList(list2);
         ListNode head3 = solution.mergeTwoLists(head1, head2);
         System.out.println(head3);
         if (expected.size() == 0) {
@@ -37,12 +37,16 @@ class LC0021_MergeTwoSortedListsTest {
 
     @Test
     void mergeTwoListsTestCase2() {
-        mergeTwoListsTest(Collections.EMPTY_LIST, Collections.EMPTY_LIST, Collections.EMPTY_LIST);
+        List<Integer> list = Collections.emptyList();
+        mergeTwoListsTest(list, list, list);
     }
 
     @Test
     void mergeTwoListsTestCase3() {
-        mergeTwoListsTest(Collections.EMPTY_LIST, Arrays.asList(0), Arrays.asList(0));
-        mergeTwoListsTest(Arrays.asList(0), Collections.EMPTY_LIST, Arrays.asList(0));
+        List<Integer> list = Collections.emptyList();
+        // Arrays.asList returns a mutable list while
+        // the list returned by List.of is immutable
+        mergeTwoListsTest(list, List.of(0), List.of(0));
+        mergeTwoListsTest(List.of(0), list, List.of(0));
     }
 }

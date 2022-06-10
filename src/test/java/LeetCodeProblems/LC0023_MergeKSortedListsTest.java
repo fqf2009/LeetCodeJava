@@ -19,20 +19,20 @@ class LC0023_MergeKSortedListsTest {
 
     void mergeKListsTest0(ListNode[] lists, List<Integer> expected) {
         ListNode res = sol.mergeKLists(lists);
-        assertIterableEquals(expected, ListNode.listNodeToList(res));
+        assertIterableEquals(expected, ListNode.toList(res));
     }
 
     void mergeKListsTest1(ListNode[] lists, List<Integer> expected) {
         ListNode res1 = sol.mergeKLists1(lists);
-        assertIterableEquals(expected, ListNode.listNodeToList(res1));
+        assertIterableEquals(expected, ListNode.toList(res1));
     }
 
     @Test
     void mergeKLists01() {
         ListNode[] lists = {
-                ListNode.createNodeList(Arrays.asList(1, 4, 5)),
-                ListNode.createNodeList(Arrays.asList(1, 3, 4)),
-                ListNode.createNodeList(Arrays.asList(2, 6))
+                ListNode.fromList(Arrays.asList(1, 4, 5)),
+                ListNode.fromList(Arrays.asList(1, 3, 4)),
+                ListNode.fromList(Arrays.asList(2, 6))
         };
         List<Integer> expected = List.of(1, 1, 2, 3, 4, 4, 5, 6);
         mergeKListsTest0(lists, expected);
@@ -55,9 +55,9 @@ class LC0023_MergeKSortedListsTest {
     @Test
     void mergeKLists11() {
         ListNode[] lists = {
-                ListNode.createNodeList(Arrays.asList(1, 4, 5)),
-                ListNode.createNodeList(Arrays.asList(1, 3, 4)),
-                ListNode.createNodeList(Arrays.asList(2, 6))
+                ListNode.fromList(Arrays.asList(1, 4, 5)),
+                ListNode.fromList(Arrays.asList(1, 3, 4)),
+                ListNode.fromList(Arrays.asList(2, 6))
         };
         List<Integer> expected = List.of(1, 1, 2, 3, 4, 4, 5, 6);
         mergeKListsTest1(lists, expected);

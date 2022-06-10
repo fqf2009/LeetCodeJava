@@ -18,8 +18,8 @@ class LC0002_AddTwoNumbersTest {
     }
 
     void addTwoNumbersTest(List<Integer> list1, List<Integer> list2, List<Integer> expected) {
-        ListNode head1 = ListNode.createNodeList(list1);
-        ListNode head2 = ListNode.createNodeList(list2);
+        ListNode head1 = ListNode.fromList(list1);
+        ListNode head2 = ListNode.fromList(list2);
         ListNode head3 = solution.addTwoNumbers(head1, head2);
         System.out.println(head3);
         if (expected.size() == 0) {
