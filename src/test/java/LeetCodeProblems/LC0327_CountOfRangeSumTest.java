@@ -1,10 +1,12 @@
 package LeetCodeProblems;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("LC0327 Count of Range Sum")
 class LC0327_CountOfRangeSumTest {
     private LC0327_CountOfRangeSum sol;
 
@@ -14,11 +16,10 @@ class LC0327_CountOfRangeSumTest {
     }
 
     void testCountRangeSum(int[] nums, int lower, int upper, int expected) {
-        int r = sol.countRangeSum(nums, lower, upper);
-        assertEquals(expected, r);
-
-        int r1 = sol.countRangeSum1(nums, lower, upper);
-        assertEquals(expected, r1);
+        assertAll(
+                () -> assertEquals(expected, sol.countRangeSum(nums, lower, upper)),
+                () -> assertEquals(expected, sol.countRangeSum1(nums, lower, upper))
+        );
     }
 
     @Test

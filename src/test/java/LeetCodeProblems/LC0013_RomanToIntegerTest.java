@@ -1,7 +1,10 @@
 package LeetCodeProblems;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,6 +23,11 @@ class LC0013_RomanToIntegerTest {
         assertEquals(9, solution.romanToInt("IX"));
         assertEquals(58, solution.romanToInt("LVIII"));
         assertEquals(1994, solution.romanToInt("MCMXCIV"));
+        Assertions.assertThrows(NullPointerException.class, () ->{
+            Thread.sleep(10);
+            solution.romanToInt(null);
+        });
+        Assertions.assertTimeout(Duration.ofMillis(100), ()-> Thread.sleep(10));
     }
 
     @Test
