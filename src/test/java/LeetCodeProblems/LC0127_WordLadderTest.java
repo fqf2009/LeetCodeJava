@@ -17,19 +17,16 @@ class LC0127_WordLadderTest {
 
     @Test
     void ladderLength1() {
-        assertEquals(2, sol.ladderLength("a", "c",
-                List.of("a", "b", "c")));
+        assertEquals(2, sol.ladderLength("a", "c", List.of("a", "b", "c")));
     }
 
     @Test
     void ladderLength2() {
-        assertEquals(5, sol.ladderLength("hit", "cog",
-                List.of("hot", "dot", "dog", "lot", "log", "cog")));
+        assertEquals(5, sol.ladderLength("hit", "cog", List.of("hot", "dot", "dog", "lot", "log", "cog")));
     }
 
     @Test
     void ladderLength3() {
-        assertEquals(0, sol.ladderLength("hit", "cog",
-                List.of("hot", "dot", "dog", "lot", "log")));
+        assertEquals(0, sol.ladderLength("hit", "cog", List.of("hot", "dot", "dog", "lot", "log")));
     }
 }

@@ -13,7 +13,9 @@ public class LC0127_WordLadder {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Map<String, List<String>> graph = new HashMap<>();
+        boolean endWordInList = false;
         for (var word : wordList) {
+            if (word.endsWith(endWord)) endWordInList = true;
             for (var wildcard : getWildcards(word)) {
                 if (!graph.containsKey(wildcard)) {
                     graph.put(wildcard, new ArrayList<>());
@@ -21,11 +23,12 @@ public class LC0127_WordLadder {
                 graph.get(wildcard).add(word);
             }
         }
+        if (!endWordInList) return 0;
 
-        Set<String> visited = new HashSet<>();
+        Set<String> visited = new HashSet<>();  // save wildcard and word
         Deque<String> dq = new ArrayDeque<>();
         dq.addLast(beginWord);
-        int res = 1;    // beginWord counts
+        int res = 1;    // beginWord counted as well
         while (dq.size() > 0) {
             res++;
             int n = dq.size();
@@ -35,10 +38,13 @@ public class LC0127_WordLadder {
                     if (!visited.contains(wildcard) && graph.containsKey(wildcard)) {
                         visited.add(wildcard);
                         for (var w2 : graph.get(wildcard)) {
-                            if (w2.equals(endWord)) {
-                                return res;
+                            if (!visited.contains(w2)) {
+                                visited.add(w2);
+                                if (w2.equals(endWord)) {
+                                    return res;
+                                }
+                                dq.addLast(w2);
                             }
-                            dq.addLast(w2);
                         }
                     }
                 }
