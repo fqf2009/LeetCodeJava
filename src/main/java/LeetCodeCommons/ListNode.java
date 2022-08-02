@@ -49,6 +49,17 @@ public class ListNode implements Iterable<Integer> {
         return arr;
     }
 
+    public static ListNode reverse(ListNode head) {
+        ListNode h0 = null, p = head;
+        while (p != null) {
+            ListNode p1 = p.next;
+            p.next = h0;
+            h0 = p;
+            p = p1;
+        }
+        return h0;
+    }
+
     @Override
     public String toString() {
         return toList(this).toString();
